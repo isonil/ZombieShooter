@@ -19,7 +19,7 @@ public class Object
     public void Draw(RenderWindow window)
     {
         sprite.Texture = objectType.Texture;
-		sprite.Origin = new Vector2f(sprite.Texture.Size.X / 2f, sprite.Texture.Size.Y / 2f);
+    sprite.Origin = new Vector2f(sprite.Texture.Size.X / 2f, sprite.Texture.Size.Y / 2f);
         sprite.Position = position;
         sprite.Draw(window, RenderStates.Default);
     }

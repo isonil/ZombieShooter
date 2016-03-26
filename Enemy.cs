@@ -7,10 +7,10 @@ namespace Game
 
 public class Enemy : Creature
 {
-	// constants
-	private const float AttackDelay = 550f;
+  // constants
+  private const float AttackDelay = 550f;
 
-	// working vars
+  // working vars
     private float attackTimer;
 
     public Enemy(CreatureType creatureType, Vector2f position)
@@ -22,7 +22,7 @@ public class Enemy : Creature
     {
         if (Dead)
         {
-			DeathSound.Play();
+      DeathSound.Play();
             return false;
         }
 
@@ -40,9 +40,9 @@ public class Enemy : Creature
         attackTimer += deltaTime;
 
         float playerDistanceSq = (player.Position.X - Position.X) * (player.Position.X - Position.X) +
-			(player.Position.Y - Position.Y) * (player.Position.Y - Position.Y);
+      (player.Position.Y - Position.Y) * (player.Position.Y - Position.Y);
 
-		const float MeleeAttackRadiusSq = (2f * MeleeAttackRadius) * (2f * MeleeAttackRadius);
+    const float MeleeAttackRadiusSq = (2f * MeleeAttackRadius) * (2f * MeleeAttackRadius);
 
         if (attackTimer > AttackDelay && playerDistanceSq < MeleeAttackRadiusSq)
         {
@@ -53,10 +53,10 @@ public class Enemy : Creature
         return true;
     }
 
-	public void GotShot()
+  public void GotShot()
     {
-		Health -= BulletShotDamage;
-		BulletHitSound.Play();
+    Health -= BulletShotDamage;
+    BulletHitSound.Play();
     }
 
     public bool Collides(List<Enemy> enemies, Player player)
@@ -66,7 +66,7 @@ public class Enemy : Creature
         foreach (var enemy in enemies)
         {
             if (enemy == this)
-				continue;
+        continue;
 
             float distanceSq = (enemy.Position.X - Position.X) * (enemy.Position.X - Position.X) +
                 (enemy.Position.Y - Position.Y) * (enemy.Position.Y - Position.Y);

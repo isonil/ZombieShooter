@@ -8,21 +8,21 @@ namespace Game
 
 public class Core
 {
-	private enum GameState
-	{
-		Menu,
-		Game,
-		Closing
-	};
+  private enum GameState
+  {
+    Menu,
+    Game,
+    Closing
+  };
 
-	// game components
+  // game components
     private Settings settings;
     private GameWorld gameWorld;
     private Player player;
     private InputState inputState;
     private GameState gameState = GameState.Menu;
 
-	// misc components
+  // misc components
     private RenderWindow window;
     private View view;
     private Stopwatch stopwatch;
@@ -34,7 +34,7 @@ public class Core
         Init();
 
         float lastTime = 0f;
-		float currentTime = 0f;
+    float currentTime = 0f;
 
         while (window.IsOpen())
         {
@@ -44,28 +44,28 @@ public class Core
 
             window.DispatchEvents();
 
-			switch (gameState)
-			{
-			case GameState.Closing:
-				window.Close();
-				break;
+      switch (gameState)
+      {
+      case GameState.Closing:
+        window.Close();
+        break;
 
-			case GameState.Menu:
+      case GameState.Menu:
                 // no menu implemented
                 gameState = GameState.Game;
-				break;
+        break;
 
-			case GameState.Game:
-				player.Update(deltaTime, inputState, gameWorld);
-				UpdateView();
-				gameWorld.Update(deltaTime, window, player);
-				gameWorld.Draw(window, player);
-				DrawGUI();
-				break;
-			}
+      case GameState.Game:
+        player.Update(deltaTime, inputState, gameWorld);
+        UpdateView();
+        gameWorld.Update(deltaTime, window, player);
+        gameWorld.Draw(window, player);
+        DrawGUI();
+        break;
+      }
 
-			if (!window.IsOpen())
-				break;
+      if (!window.IsOpen())
+        break;
 
             window.Display();
             window.Clear(Color.Black);
@@ -109,20 +109,20 @@ public class Core
     private void OnKeyPressed(object obj, KeyEventArgs e)
     {
         if (e.Code == Keyboard.Key.Escape)
-			gameState = GameState.Closing;
+      gameState = GameState.Closing;
 
         if (e.Code == Keyboard.Key.P)
-			RestartGame();
+      RestartGame();
 
-		int keyCode = (int)e.Code;
+    int keyCode = (int)e.Code;
 
         if (keyCode >= 0 && keyCode < (int)Keyboard.Key.KeyCount)
             inputState.IsKeyPressed[keyCode] = true;
     }
 
     private void OnKeyReleased(object obj, KeyEventArgs e)
-	{
-		int keyCode = (int)e.Code;
+  {
+    int keyCode = (int)e.Code;
 
         if (keyCode >= 0 && keyCode < (int)Keyboard.Key.KeyCount)
             inputState.IsKeyPressed[keyCode] = false;
@@ -130,10 +130,10 @@ public class Core
 
     private void OnMouseMoved(object obj, MouseMoveEventArgs e)
     {
-		inputState.MousePosition = new Vector2f(e.X, e.Y);
+    inputState.MousePosition = new Vector2f(e.X, e.Y);
 
         inputState.MousePositionFromCenter = new Vector2f(inputState.MousePosition.X - settings.WindowSize.X / 2,
-			inputState.MousePosition.Y - settings.WindowSize.Y / 2);
+      inputState.MousePosition.Y - settings.WindowSize.Y / 2);
     }
 
     private void OnMouseButtonPressed(object obj, MouseButtonEventArgs e)
