@@ -6,7 +6,7 @@ namespace Game
 
 public class Settings
 {
-  public Vector2u WindowSize { get; private set; }
+    public Vector2u WindowSize { get; private set; }
     public bool Fullscreen { get; private set; }
 
     public Settings(string path)
@@ -18,8 +18,8 @@ public class Settings
     {
         // loading config not implemented
 
-    var desktopMode = VideoMode.DesktopMode;
-    WindowSize = new Vector2u(desktopMode.Width, desktopMode.Height);
+        var desktopMode = VideoMode.DesktopMode;
+        WindowSize = new Vector2u(desktopMode.Width, desktopMode.Height);
         Fullscreen = true;
     }
 }

@@ -15,10 +15,10 @@ public class ObjectType
 
 public class HardcodedObjectTypes
 {
-  public static readonly ObjectType Tree1 = new ObjectType("Data/Objects/tree1.png");
-  public static readonly ObjectType Tree2 = new ObjectType("Data/Objects/tree2.png");
-  public static readonly ObjectType Tree3 = new ObjectType("Data/Objects/tree3.png");
-  public static readonly ObjectType Tree4 = new ObjectType("Data/Objects/tree4.png");
+    public static readonly ObjectType Tree1 = new ObjectType("Data/Objects/tree1.png");
+    public static readonly ObjectType Tree2 = new ObjectType("Data/Objects/tree2.png");
+    public static readonly ObjectType Tree3 = new ObjectType("Data/Objects/tree3.png");
+    public static readonly ObjectType Tree4 = new ObjectType("Data/Objects/tree4.png");
 }
 
 }

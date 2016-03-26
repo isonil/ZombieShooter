@@ -5,9 +5,9 @@ namespace Game
 
 public class CreatureType
 {
-  public Texture Texture { get; private set; }
-  public float MovementSpeed { get; private set; }
-  public int MaxHealth { get; private set; }
+    public Texture Texture { get; private set; }
+    public float MovementSpeed { get; private set; }
+    public int MaxHealth { get; private set; }
 
     public CreatureType(string texturePath, float movementSpeed, int maxHealth)
     {
