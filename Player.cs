@@ -84,17 +84,13 @@ public class Player : Creature
             }
         }
 
-        if (Position.X < 0f)
+        if (Position.X < 0f
+            || Position.X > GameWorld.MapSize
+            || Position.Y < 0f
+            || Position.Y > GameWorld.MapSize)
+        {
             collides = true;
-
-        if (Position.X > GameWorld.MapSize)
-            collides = true;
-
-        if (Position.Y < 0f)
-            collides = true;
-
-        if (Position.Y > GameWorld.MapSize)
-            collides = true;
+        }
 
         if (collides)
             Position = prevPosition;
